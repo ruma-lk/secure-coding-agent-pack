@@ -80,12 +80,17 @@ Updates to GitHub **do not automatically update your device**. A session can che
 | Python threads / workers / asyncio | [python-concurrency.md](skills/secure-coding/references/python-concurrency.md) |
 | Cache services (Redis, Valkey, Memcached, CDN, browser/mobile) | [cache-security.md](skills/secure-coding/references/cache-security.md) |
 | Task planning, sequential execution and resume | [task-execution.md](skills/secure-coding/references/task-execution.md) |
+| Low-context execution without skipping security | [context-efficient-workflow.md](skills/secure-coding/references/context-efficient-workflow.md) |
 
 ## Cache security
 The skill requires [cache security and resilience checks](skills/secure-coding/references/cache-security.md) for Redis, Valkey, Memcached, CDN, application-level, and offline/mobile caches. It checks network exposure, authentication, tenant isolation, TTL and invalidation, stale permissions, counter atomicity, memory/connection bounds, key poisoning, stampedes, failover, and cache outage behavior. Applies to every supported stack. This is review guidance; service configuration and validation tests must be performed in each project.
 
 ## IPG and messaging security
 The skill automatically adds [universal payment security](skills/secure-coding/references/payment-security.md), [Master IPG / Bancstac IPG / OnePay / PayHere provider checks](skills/secure-coding/references/ipg-providers.md), and [eSMS security](skills/secure-coding/references/esms-security.md) whenever payment, refund, tokenization, OTP or SMS functionality is detected. These are stack-independent rules for React, Laravel, Node.js, PHP, Python, Java, Go, Ruby, React Native and Flutter. Merchant-specific official documentation is required; agents must not invent callback formats, provider credentials, rate limits or status mappings.
+
+## Context-efficient task execution
+
+For complex audits, the agent plans once, saves a compact project summary and structured task state, then executes one task with only the relevant files and **mandatory** security references. Each fix requires verification and recorded evidence before a PASS. New sessions can resume by rechecking the real repository state; task splitting alone does not reset context. Details: [context-efficient workflow](skills/secure-coding/references/context-efficient-workflow.md) and [task template](skills/secure-coding/templates/TASKS.example.json).
 
 ## Security workflow
 
