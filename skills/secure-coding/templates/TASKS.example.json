@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "baseline_revision": "REPLACE_WITH_GIT_SHA",
+  "project": "REPLACE_WITH_PROJECT_NAME",
+  "tasks": [
+    {
+      "id": "SEC-001",
+      "title": "Example: verify object-level authorization",
+      "severity": "high",
+      "status": "TODO",
+      "depends_on": [],
+      "files": [],
+      "risk": "Cross-account resource access",
+      "acceptance_criteria": ["Unauthorized requests are denied", "Authorized behavior remains functional"],
+      "required_references": ["universal.md"],
+      "required_tests": ["authorized access", "unauthorized cross-account access"],
+      "test_results": [],
+      "evidence_paths": [],
+      "verified_revision": null,
+      "residual_risks": [],
+      "notes": "Replace example with project-specific findings. Never record secrets."
+    }
+  ]
+}
