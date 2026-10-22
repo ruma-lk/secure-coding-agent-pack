@@ -88,6 +88,9 @@ The skill requires [cache security and resilience checks](skills/secure-coding/r
 ## IPG and messaging security
 The skill automatically adds [universal payment security](skills/secure-coding/references/payment-security.md), [Master IPG / Bancstac IPG / OnePay / PayHere provider checks](skills/secure-coding/references/ipg-providers.md), and [eSMS security](skills/secure-coding/references/esms-security.md) whenever payment, refund, tokenization, OTP or SMS functionality is detected. These are stack-independent rules for React, Laravel, Node.js, PHP, Python, Java, Go, Ruby, React Native and Flutter. Merchant-specific official documentation is required; agents must not invent callback formats, provider credentials, rate limits or status mappings.
 
+## Optional Graphify integration
+For larger repositories the skill can **detect Graphify**, offer to install the official `graphifyy` tool (with your approval), build a local project map, and query only affected relationships instead of loading broad source trees. It falls back to direct code search if missing or unsuitable. Graph maps cannot replace authorization checks, source review, tests, or security evidence. Read [Graphify navigation rules](skills/secure-coding/references/graphify-navigation.md).
+
 ## Context-efficient task execution
 
 For complex audits, the agent plans once, saves a compact project summary and structured task state, then executes one task with only the relevant files and **mandatory** security references. Each fix requires verification and recorded evidence before a PASS. New sessions can resume by rechecking the real repository state; task splitting alone does not reset context. Details: [context-efficient workflow](skills/secure-coding/references/context-efficient-workflow.md) and [task template](skills/secure-coding/templates/TASKS.example.json).
