@@ -39,7 +39,7 @@ Document applicable limits and evidence for per-identity/tenant rate limits, bur
 When code touches checkout, payments, refunds, tokenization, subscriptions, billing, payment callbacks, OTP, SMS, bulk messaging, or delivery status, mandatory references:
 - `references/payment-security.md`
 - `references/ipg-providers.md` for Master IPG, Bancstac IPG, OnePay and PayHere
-- `references/dialog-esms-security.md` for Dialog eSMS and comparable messaging services
+- `references/esms-security.md` for eSMS and comparable messaging services
 These gates apply regardless of programming language. Verify current merchant-specific specifications; NEVER guess undocumented signatures, endpoints, statuses or API parameters. Validate payments server-side, exact amount/currency/order, replay and concurrent fulfillment. For OTP check limits, expiry, one-time consumption and worker queue bounds. Keep secrets exclusively on servers.
 
 ## Framework references
