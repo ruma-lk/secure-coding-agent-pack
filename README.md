@@ -1,6 +1,6 @@
 # Secure Coding Agent Pack
 
-Reusable security-first instructions for Claude Code, Codex and coding agents working with React, Laravel, Node.js, PHP, and mixed stacks.
+Reusable security-first instructions for Claude Code, Codex and coding agents working with React, Laravel, Node.js, PHP, Python, Java, Go, Ruby, React Native, Flutter, and mixed stacks.
 
 > Starter security policy and checks, **not a security guarantee**. Combine with CI, least-privilege permissions, peer review and penetration testing.
 
@@ -8,6 +8,7 @@ Reusable security-first instructions for Claude Code, Codex and coding agents wo
 - `skills/secure-coding/SKILL.md` — main skill
 - `skills/secure-coding/references/` — stack-specific policies
 - `templates/CLAUDE.md`, `templates/AGENTS.md` — project instructions
+- Stack references: Python, Java, Go, Ruby, React Native and Flutter
 - `scripts/security_check.py` — optional read-only scanner
 - `INSTALL.md` — installation steps
 
