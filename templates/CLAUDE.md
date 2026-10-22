@@ -1,0 +1,2 @@
+# Secure Development Instructions
+Before editing security-sensitive code, consult the secure-coding skill. Inspect relevant stack guides and threat model affected trust boundaries. Preserve existing functionality, enforce server-side authorization, never reveal secrets, and avoid unapproved destructive or production actions. After changes, review diffs, run relevant tests and scanners, and report PASS/FAIL/NOT RUN with residual risks. Never claim guaranteed security.
