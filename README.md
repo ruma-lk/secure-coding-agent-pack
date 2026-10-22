@@ -79,6 +79,7 @@ Updates to GitHub **do not automatically update your device**. A session can che
 | Bounded concurrency / resources | [concurrency-and-resource-safety.md](skills/secure-coding/references/concurrency-and-resource-safety.md) |
 | Python threads / workers / asyncio | [python-concurrency.md](skills/secure-coding/references/python-concurrency.md) |
 | Cache services (Redis, Valkey, Memcached, CDN, browser/mobile) | [cache-security.md](skills/secure-coding/references/cache-security.md) |
+| Task planning, sequential execution and resume | [task-execution.md](skills/secure-coding/references/task-execution.md) |
 
 ## Cache security
 The skill requires [cache security and resilience checks](skills/secure-coding/references/cache-security.md) for Redis, Valkey, Memcached, CDN, application-level, and offline/mobile caches. It checks network exposure, authentication, tenant isolation, TTL and invalidation, stale permissions, counter atomicity, memory/connection bounds, key poisoning, stampedes, failover, and cache outage behavior. Applies to every supported stack. This is review guidance; service configuration and validation tests must be performed in each project.
