@@ -1,0 +1,11 @@
+# PHP Security
+- Use prepared statements with bound parameters; never concatenate untrusted SQL.
+- Escape HTML by output context; review templates, attributes, URLs and JavaScript contexts.
+- Validate and authorize each request server-side; check record ownership and role permissions.
+- Use password_hash and password_verify; do not invent password hashing or encryption.
+- Use secure session cookie settings, regenerate session IDs after login and invalidate on logout.
+- Include CSRF tokens for state-changing cookie-authenticated requests.
+- Validate actual upload types, sizes and destinations; store outside web root when practical.
+- Disable display_errors in production, log errors safely, avoid exposing config and secrets.
+- Avoid include/require of user-controlled paths, unsafe deserialization and command execution.
+- Prefer maintained libraries and patch supported PHP versions.
