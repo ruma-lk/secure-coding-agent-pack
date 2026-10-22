@@ -1,0 +1,11 @@
+# Node.js Security
+- Validate all inputs at request boundaries with a maintained schema validator.
+- Check authorization for every API endpoint and object; enforce tenant scoping in database access.
+- Prevent prototype pollution through dependency maintenance, safe parsing and controlled object merging.
+- Do not interpolate untrusted data into shell, SQL, template or filesystem paths.
+- Configure CORS narrowly and CSRF protection where cookie auth is in use.
+- Set body size limits, timeouts, rate limits and safe HTTP response headers.
+- Enforce TLS and secure session cookies; review JWT verification algorithms, issuer, audience and expiry.
+- Review SSRF and outbound URL restrictions; block internal/private networks where appropriate.
+- Pin and audit dependencies including lifecycle scripts; never blindly run untrusted packages.
+- Log structured minimal data and redact tokens, cookies and user secrets.
