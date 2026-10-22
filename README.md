@@ -1,3 +1,5 @@
+> **Recommended for Claude Code, Codex and OpenCode on any OS:** Copy the one-prompt setup from [Universal Agent Installation](docs/UNIVERSAL-INSTALL.md). No PowerShell required; the agent selects the correct directory and reviews updates.
+
 # Secure Coding Agent Pack
 
 Reusable security-first instructions for Claude Code, Codex and coding agents working with React, Laravel, Node.js, PHP, Python, Java, Go, Ruby, React Native, Flutter, and mixed stacks.
