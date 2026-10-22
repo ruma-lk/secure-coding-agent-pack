@@ -30,3 +30,6 @@ Use CI, protected branches, peer review and manual risk acceptance for unresolve
 - https://code.claude.com/docs/en/skills
 - https://owasp.org/www-project-application-security-verification-standard/
 - https://cheatsheetseries.owasp.org/
+
+## Newly supported stacks
+The skill includes guides for Python, Java, Go, Ruby, React Native and Flutter under `skills/secure-coding/references/`. Agents choose the applicable reference after detecting the project stack.
