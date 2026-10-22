@@ -2,6 +2,9 @@
 
 Goal: lower **peak context** without dropping security coverage. Splitting tasks in the same session does not clear history; isolated subagents/new sessions are optional, never presumed available. Preserve security invariants and verifiable state across boundaries.
 
+## Graph-first option
+Follow `graphify-navigation.md` for broad exploration when the tool is available and the project allows local indexing. Query scoped graph relationships to reduce searches; independently verify relevant source paths. If Graphify is missing, request permission before installing it, and continue with ordinary code navigation if not approved or installation fails. Graphify is not a prerequisite to safe task execution.
+
 ## A. Scan once, map risks, then plan
 1. Read `SKILL.md` and `universal.md`, inspect project structure and security-sensitive entry points without reading secrets. Identify stack, tenants, auth boundaries, financial/SMS flows, caches, exposed endpoints and external services.
 2. Create stable task IDs, dependencies, severity, relevant files, risk/attack scenario, acceptance criteria, required negative tests, and exact required reference names. **Preserve all findings** in a task tracker; don't drop or de-scope findings to meet a context budget.
