@@ -1,6 +1,6 @@
 ---
 name: secure-coding
-description: Security-first coding and review for any repository. Use before implementing or reviewing authentication, APIs, database access, file uploads, payments, deployment, dependencies, or other application code in React, Laravel, Node.js, PHP, or mixed stacks.
+description: Security-first coding and review for any repository. Use before implementing or reviewing authentication, APIs, database access, file uploads, payments, deployment, dependencies, or other application code in React, Laravel, Node.js, PHP, Python, Java, Go, Ruby, React Native, Flutter, or mixed stacks.
 ---
 # Secure Coding Agent
 
@@ -28,7 +28,7 @@ Build features without knowingly introducing exploitable vulnerabilities. Never 
 - Deployment configuration, debug modes, least-privilege accounts, backups and rollback
 
 ## Framework references
-Read only relevant guides: `references/react.md`, `references/laravel.md`, `references/node.md`, `references/php.md`. For mixed projects combine all relevant references.
+Read only relevant guides: `references/react.md`, `references/laravel.md`, `references/node.md`, `references/php.md`, `references/python.md`, `references/java.md`, `references/go.md`, `references/ruby.md`, `references/react-native.md`, `references/flutter.md`. For mixed projects combine all relevant references.
 
 ## Non-negotiable agent behavior
 - Never read or echo entire `.env`, private keys, tokens, or production databases to the model or output. Inspect example/config keys without revealing values.
