@@ -80,7 +80,7 @@ Updates to GitHub **do not automatically update your device**. A session can che
 | Python threads / workers / asyncio | [python-concurrency.md](skills/secure-coding/references/python-concurrency.md) |
 
 ## IPG and messaging security
-The skill automatically adds [universal payment security](skills/secure-coding/references/payment-security.md), [Master IPG / Bancstac IPG / OnePay / PayHere provider checks](skills/secure-coding/references/ipg-providers.md), and [Dialog eSMS security](skills/secure-coding/references/dialog-esms-security.md) whenever payment, refund, tokenization, OTP or SMS functionality is detected. These are stack-independent rules for React, Laravel, Node.js, PHP, Python, Java, Go, Ruby, React Native and Flutter. Merchant-specific official documentation is required; agents must not invent callback formats, provider credentials, rate limits or status mappings.
+The skill automatically adds [universal payment security](skills/secure-coding/references/payment-security.md), [Master IPG / Bancstac IPG / OnePay / PayHere provider checks](skills/secure-coding/references/ipg-providers.md), and [eSMS security](skills/secure-coding/references/esms-security.md) whenever payment, refund, tokenization, OTP or SMS functionality is detected. These are stack-independent rules for React, Laravel, Node.js, PHP, Python, Java, Go, Ruby, React Native and Flutter. Merchant-specific official documentation is required; agents must not invent callback formats, provider credentials, rate limits or status mappings.
 
 ## Security workflow
 
