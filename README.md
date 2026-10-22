@@ -35,3 +35,6 @@ python scripts/security_check.py PATH_TO_PROJECT
 ```
 
 A missing scanner is **NOT RUN**, not a pass. Branch protection, human review, dependency/secret scanning and negative authorization tests remain essential.
+
+## Resilience and production safeguards
+The main skill now requires review of rate limiting and abuse protection, queue/concurrency bounds, retries, timeouts, worker lifecycle and resource exhaustion. Read `skills/secure-coding/references/rate-limits-and-abuse.md`, `concurrency-and-resource-safety.md` and the Python-specific `python-concurrency.md` when relevant. These are review policies; they do not automatically configure deployments or guarantee complete coverage.
