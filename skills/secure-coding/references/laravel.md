@@ -1,0 +1,11 @@
+# Laravel Security
+- Enforce server-side authorization with policies/gates and scoped model queries; test IDOR/BOLA.
+- Validate input with Form Requests and explicit allowlists; never trust route-model binding alone as authorization.
+- Use Eloquent/query builder bound parameters, avoid unsafe raw SQL.
+- Keep CSRF protection for cookie-authenticated web forms; review auth guards and middleware.
+- Guard against mass assignment; explicitly allow fillable attributes and avoid unrestricted forceFill.
+- Store uploads on least-privilege disks, validate content and download permissions.
+- Use Hash and framework cryptography; never hardcode application keys.
+- Protect signed URLs and webhooks; validate signature, timestamp and replay when applicable.
+- Disable debug in production, protect .env and artisan endpoints, ensure safe queue/job access.
+- Test sessions, role transitions, tenant isolation, API throttling and unauthorized resource access.
