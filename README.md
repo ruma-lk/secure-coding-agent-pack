@@ -1,45 +1,123 @@
-> **Recommended for Claude Code, Codex and OpenCode on any OS:** Copy the one-prompt setup from [Universal Agent Installation](docs/UNIVERSAL-INSTALL.md). No PowerShell required; the agent selects the correct directory and reviews updates.
-
 # Secure Coding Agent Pack
 
-Reusable security-first instructions for Claude Code, Codex and coding agents working with React, Laravel, Node.js, PHP, Python, Java, Go, Ruby, React Native, Flutter, and mixed stacks.
+**Security-first coding skills for Claude Code, OpenAI Codex, OpenCode and other compatible agents — Windows, macOS and Linux.**
 
-> Starter security policy and checks, **not a security guarantee**. Combine with CI, least-privilege permissions, peer review and penetration testing.
+[Main skill](skills/secure-coding/SKILL.md) · [Security references](skills/secure-coding/references) · [Security checker](scripts/security_check.py)
 
-## Contents
-- `skills/secure-coding/SKILL.md` — main skill
-- `skills/secure-coding/references/` — stack-specific policies
-- `templates/CLAUDE.md`, `templates/AGENTS.md` — project instructions
-- Stack references: Python, Java, Go, Ruby, React Native and Flutter
-- `scripts/security_check.py` — optional read-only scanner
-- `INSTALL.md` — installation steps
+> This pack provides agent guidance and optional checks, **not a guarantee of security**. Use human review, CI, protected branches and tests before production deployment.
 
-## Install from GitHub (Windows PowerShell)
+## Install with one prompt — all operating systems
 
-```powershell
-git clone https://github.com/ruma-lk/secure-coding-agent-pack.git "$env:TEMP\secure-coding-agent-pack"
-New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills" | Out-Null
-Copy-Item "$env:TEMP\secure-coding-agent-pack\skills\secure-coding" "$env:USERPROFILE\.claude\skills\secure-coding" -Recurse -Force
+Open **Claude Code, Codex or OpenCode** in a workspace where the agent has terminal/filesystem access. Paste this message:
+
+```text
+Install or update the Secure Coding Agent Skill from:
+https://github.com/ruma-lk/secure-coding-agent-pack
+
+Detect the current agent (Claude Code, Codex or OpenCode), operating system
+(Windows, macOS or Linux), and the correct user-level skill discovery path.
+
+Read the repository README and skills/secure-coding/SKILL.md first.
+Fetch only the trusted repository. Install the entire
+skills/secure-coding directory, including references, into the appropriate
+user-level skills directory without overwriting other skills or settings.
+
+For an existing installation, compare versions, review the changes,
+back up the current skill, and update it safely.
+Verify SKILL.md and all references exist after installation.
+Report the installation path, source commit and how to invoke the skill.
+
+Do not run downloaded scripts blindly, expose secrets, or enable
+unattended/scheduled updates without my approval.
 ```
 
-Restart Claude Code and use `/secure-coding`.
+**Prerequisites:** Your agent must be able to access GitHub and write to its local skill directory. Git may be needed. The prompt is a portable *agent instruction*, not a universal built-in install command; installations may require approving filesystem/terminal actions.
 
-To update: run `git -C "$env:TEMP\secure-coding-agent-pack" pull`, and repeat the copy. Existing installed skills do not automatically update.
+### Install directories (same layout on Windows, macOS and Linux)
 
-## Project install
-Copy `skills/secure-coding` to `.claude/skills/secure-coding` in the target project. Merge the provided `CLAUDE.md` with existing instructions; never overwrite existing security rules.
+The agent chooses the correct home directory and path syntax for your OS:
 
-For Codex and other agents, adapt their skill discovery paths and merge `templates/AGENTS.md` into the project root.
+| Agent | User-level skill path | Project-level skill path |
+|---|---|---|
+| Claude Code | `~/.claude/skills/secure-coding/` | `.claude/skills/secure-coding/` |
+| Codex | `~/.agents/skills/secure-coding/` | `.agents/skills/secure-coding/` |
+| OpenCode | `~/.config/opencode/skills/secure-coding/` | `.opencode/skills/secure-coding/` |
 
-## Run checks
-```powershell
+`~` means the current user's home directory (including on Windows). To use project scope, ask your agent: **"Install this secure-coding skill only in the current project."** Verify your agent version's discovery conventions if customized.
+
+Restart or start a fresh agent session if it does not immediately discover the skill. In Claude Code, try `/secure-coding`. In other agents, ask: **"Use the secure-coding skill to audit this project."**
+
+## Update via the agent (Windows / macOS / Linux)
+
+Paste into the same coding agent:
+
+```text
+Update my installed secure-coding skill using
+https://github.com/ruma-lk/secure-coding-agent-pack .
+Review upstream differences, preserve unrelated files, back up the old skill,
+install the verified version, and report the source commit and changes.
+```
+
+Updates to GitHub **do not automatically update your device**. A session can check on demand. Background auto-update requires an explicitly authorized startup hook or OS scheduler (Windows Task Scheduler, macOS launchd, Linux systemd timer/cron). For security-sensitive use, prefer pinned or reviewed releases over silently executing instructions from the latest main branch. Optional legacy Windows-only scripts are available under `scripts/`, but **are not required** for installation.
+
+## Coverage
+
+| Stack | Reference |
+|---|---|
+| Universal practices | [universal.md](skills/secure-coding/references/universal.md) |
+| React | [react.md](skills/secure-coding/references/react.md) |
+| Laravel | [laravel.md](skills/secure-coding/references/laravel.md) |
+| Node.js | [node.md](skills/secure-coding/references/node.md) |
+| PHP | [php.md](skills/secure-coding/references/php.md) |
+| Python | [python.md](skills/secure-coding/references/python.md) |
+| Java | [java.md](skills/secure-coding/references/java.md) |
+| Go | [go.md](skills/secure-coding/references/go.md) |
+| Ruby | [ruby.md](skills/secure-coding/references/ruby.md) |
+| React Native | [react-native.md](skills/secure-coding/references/react-native.md) |
+| Flutter | [flutter.md](skills/secure-coding/references/flutter.md) |
+| Rate limits / abuse | [rate-limits-and-abuse.md](skills/secure-coding/references/rate-limits-and-abuse.md) |
+| Bounded concurrency / resources | [concurrency-and-resource-safety.md](skills/secure-coding/references/concurrency-and-resource-safety.md) |
+| Python threads / workers / asyncio | [python-concurrency.md](skills/secure-coding/references/python-concurrency.md) |
+
+## Security workflow
+
+1. Identify framework, trust boundaries, actors, secrets and attack surface.
+2. Threat-model changed flows and enforce server-side authorization and validation.
+3. Review authentication, session safety, injection, SSRF, uploads, permissions and dependencies.
+4. Check rate limits, worker/thread caps, **bounded task queues**, timeouts, cancellation, retries, backpressure and graceful shutdown.
+5. Run applicable unit/integration/security tests and review the diff.
+6. Report **PASS / FAIL / NOT RUN**, severity, affected locations and remaining risks.
+
+## Optional local checker
+
+From the cloned repository, run:
+
+```sh
 python scripts/security_check.py PATH_TO_PROJECT
 ```
 
-A missing scanner is **NOT RUN**, not a pass. Branch protection, human review, dependency/secret scanning and negative authorization tests remain essential.
+Some systems use `python3` instead of `python`. The checker runs applicable locally available tools and may invoke dependency auditing; it does not install scanners automatically. **NOT RUN is never PASS.**
 
-## Resilience and production safeguards
-The main skill now requires review of rate limiting and abuse protection, queue/concurrency bounds, retries, timeouts, worker lifecycle and resource exhaustion. Read `skills/secure-coding/references/rate-limits-and-abuse.md`, `concurrency-and-resource-safety.md` and the Python-specific `python-concurrency.md` when relevant. These are review policies; they do not automatically configure deployments or guarantee complete coverage.
+## Repository structure
 
-## Optional Windows automatic updates
-See [Auto-update setup](docs/AUTO-UPDATE.md). The opt-in Windows scheduled task checks GitHub at login and updates only your installed Claude Code secure-coding skill. Review changes to main before trusting them; restart Claude Code to load updates. No scheduler is installed until you run the setup script.
+```text
+skills/secure-coding/
+  SKILL.md
+  references/
+    universal.md
+    react.md  laravel.md  node.md  php.md
+    python.md  java.md  go.md  ruby.md
+    react-native.md  flutter.md
+    rate-limits-and-abuse.md
+    concurrency-and-resource-safety.md
+    python-concurrency.md
+scripts/
+  security_check.py
+  update-skill.ps1               # legacy, optional Windows helper
+  enable-windows-auto-update.ps1 # legacy, optional Windows helper
+templates/
+  CLAUDE.md
+  AGENTS.md
+```
+
+**Security note:** Review upstream changes before installing or enabling updates. A coding agent cannot guarantee zero vulnerabilities and does not replace professional security testing.
