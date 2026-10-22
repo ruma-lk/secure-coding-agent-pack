@@ -1,4 +1,6 @@
-# Installation
+> **Recommended for Claude Code, Codex and OpenCode on any OS:** Copy the one-prompt setup from [Universal Agent Installation](docs/UNIVERSAL-INSTALL.md). No PowerShell required; the agent selects the correct directory and reviews updates.
+
+# Installation (legacy Windows instructions below)
 
 ## Windows / Claude Code (global)
 Run from PowerShell:
