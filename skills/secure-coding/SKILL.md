@@ -35,6 +35,13 @@ For every network-facing, background-processing or concurrency-sensitive change,
 
 Document applicable limits and evidence for per-identity/tenant rate limits, bursts, concurrent requests, worker/thread caps, bounded submissions and queue depth, CPU/RAM budgets, timeouts, cancellation, retry limits, DB pools, uploads, pagination, external API costs, idempotency, deadlocks, distributed enforcement, metrics and graceful shutdown. Absence of controls is a finding, not a silent pass. NEVER perform production load tests without explicit approval.
 
+## Payment gateway and SMS integration security gate
+When code touches checkout, acquiring bank, payments, refunds, tokenization, subscriptions, billing, payment callbacks, OTP, SMS, bulk messaging, or delivery status, mandatory references:
+- `references/payment-security.md`
+- `references/sri-lanka-ipg-providers.md` for Sampath Bank, Seylan Bank / Mastercard MPGS, OnePay and PayHere
+- `references/dialog-esms-security.md` for Dialog eSMS and comparable messaging services
+These gates apply regardless of programming language. Verify current merchant-specific specifications; NEVER guess undocumented signatures, endpoints, statuses or API parameters. Validate payments server-side, exact amount/currency/order, replay and concurrent fulfillment. For OTP check limits, expiry, one-time consumption and worker queue bounds. Keep secrets exclusively on servers.
+
 ## Framework references
 Read only relevant guides: `references/react.md`, `references/laravel.md`, `references/node.md`, `references/php.md`, `references/python.md`, `references/java.md`, `references/go.md`, `references/ruby.md`, `references/react-native.md`, `references/flutter.md`. For mixed projects combine all relevant references.
 
