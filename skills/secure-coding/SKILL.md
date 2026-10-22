@@ -25,6 +25,7 @@ Build features without knowingly introducing exploitable vulnerabilities. Never 
 - Sensitive data exposure, encryption/TLS, secrets and error handling
 - Dependencies, lockfiles, build scripts and supply-chain risks
 - Rate limits, in-flight requests, bounded queues and worker/thread limits (especially Python), resource exhaustion, abuse and logging without sensitive data
+- Cache service isolation, TTL/invalidation, stale authorization, memory limits and failure modes
 - Deployment configuration, debug modes, least-privilege accounts, backups and rollback
 
 ## Mandatory resilience and resource-exhaustion gate
@@ -34,6 +35,9 @@ For every network-facing, background-processing or concurrency-sensitive change,
 - `references/python-concurrency.md` for Python threads, processes, asyncio, workers and queues.
 
 Document applicable limits and evidence for per-identity/tenant rate limits, bursts, concurrent requests, worker/thread caps, bounded submissions and queue depth, CPU/RAM budgets, timeouts, cancellation, retry limits, DB pools, uploads, pagination, external API costs, idempotency, deadlocks, distributed enforcement, metrics and graceful shutdown. Absence of controls is a finding, not a silent pass. NEVER perform production load tests without explicit approval.
+
+## Mandatory cache service security gate
+When the application uses Redis, Valkey, Memcached, CDN/reverse-proxy caches, in-process caching, sessions, rate counters, OTP stores, task brokers, payment state caching or client-side persistence, read `references/cache-security.md`. Inspect authentication/network exposure, tenant isolation, permission-scoped keys, caching of sensitive responses, TTL/invalidation, atomic counters, cache poisoning, memory/connection bounds, stampedes, failover and fail-open/closed behavior. Cache is never the sole authoritative durable record for financial outcomes. Test security failure modes and report NOT RUN explicitly.
 
 ## Payment gateway and SMS integration security gate
 When code touches checkout, payments, refunds, tokenization, subscriptions, billing, payment callbacks, OTP, SMS, bulk messaging, or delivery status, mandatory references:
