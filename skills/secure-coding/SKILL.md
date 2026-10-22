@@ -24,8 +24,16 @@ Build features without knowingly introducing exploitable vulnerabilities. Never 
 - File upload content/type/size/storage/access controls
 - Sensitive data exposure, encryption/TLS, secrets and error handling
 - Dependencies, lockfiles, build scripts and supply-chain risks
-- Rate limits, resource exhaustion, abuse and logging without sensitive data
+- Rate limits, in-flight requests, bounded queues and worker/thread limits (especially Python), resource exhaustion, abuse and logging without sensitive data
 - Deployment configuration, debug modes, least-privilege accounts, backups and rollback
+
+## Mandatory resilience and resource-exhaustion gate
+For every network-facing, background-processing or concurrency-sensitive change, read:
+- `references/rate-limits-and-abuse.md`
+- `references/concurrency-and-resource-safety.md`
+- `references/python-concurrency.md` for Python threads, processes, asyncio, workers and queues.
+
+Document applicable limits and evidence for per-identity/tenant rate limits, bursts, concurrent requests, worker/thread caps, bounded submissions and queue depth, CPU/RAM budgets, timeouts, cancellation, retry limits, DB pools, uploads, pagination, external API costs, idempotency, deadlocks, distributed enforcement, metrics and graceful shutdown. Absence of controls is a finding, not a silent pass. NEVER perform production load tests without explicit approval.
 
 ## Framework references
 Read only relevant guides: `references/react.md`, `references/laravel.md`, `references/node.md`, `references/php.md`, `references/python.md`, `references/java.md`, `references/go.md`, `references/ruby.md`, `references/react-native.md`, `references/flutter.md`. For mixed projects combine all relevant references.
