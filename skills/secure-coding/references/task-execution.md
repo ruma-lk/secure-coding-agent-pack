@@ -1,5 +1,7 @@
 # Task-Driven Security Execution
 
+Use this together with `context-efficient-workflow.md`. For context-efficient handoffs store a compact `.security-work/PROJECT_STATE.md` and a structured `.security-work/TASKS.json` using `templates/TASKS.example.json` as a starting schema where permitted. Preserve full security findings and verification evidence. No PASS without tests; new sessions must validate task state against repository changes.
+
 This workflow is mandatory for multi-file changes, full audits, and requests to fix multiple findings. For small single-file fixes, a compact in-memory checklist may be sufficient.
 
 ## Plan before changes
