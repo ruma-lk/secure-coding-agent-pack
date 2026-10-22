@@ -58,7 +58,7 @@ Review upstream differences, preserve unrelated files, back up the old skill,
 install the verified version, and report the source commit and changes.
 ```
 
-Updates to GitHub **do not automatically update your device**. A session can check on demand. Background auto-update requires an explicitly authorized startup hook or OS scheduler (Windows Task Scheduler, macOS launchd, Linux systemd timer/cron). For security-sensitive use, prefer pinned or reviewed releases over silently executing instructions from the latest main branch. Optional legacy Windows-only scripts are available under `scripts/`, but **are not required** for installation.
+Updates to GitHub **do not automatically update your device**. A session can check on demand. **Cross-platform daily auto-update is now available as an opt-in setup** using Python 3.9+ and Git: Windows Task Scheduler, macOS launchd, or Linux systemd user timer. See [Auto-update setup](docs/AUTO-UPDATE.md). For security-sensitive use, prefer pinned or reviewed releases over silently executing instructions from the latest main branch. Legacy Windows-only scripts are optional; the recommended auto-updater uses `scripts/skill_updater.py` and `scripts/setup_auto_update.py` on all three operating systems.
 
 ## Coverage
 
@@ -121,6 +121,8 @@ skills/secure-coding/
     cache-security.md
 scripts/
   security_check.py
+  skill_updater.py
+  setup_auto_update.py
   update-skill.ps1               # legacy, optional Windows helper
   enable-windows-auto-update.ps1 # legacy, optional Windows helper
 templates/
