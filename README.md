@@ -38,3 +38,6 @@ A missing scanner is **NOT RUN**, not a pass. Branch protection, human review, d
 
 ## Resilience and production safeguards
 The main skill now requires review of rate limiting and abuse protection, queue/concurrency bounds, retries, timeouts, worker lifecycle and resource exhaustion. Read `skills/secure-coding/references/rate-limits-and-abuse.md`, `concurrency-and-resource-safety.md` and the Python-specific `python-concurrency.md` when relevant. These are review policies; they do not automatically configure deployments or guarantee complete coverage.
+
+## Optional Windows automatic updates
+See [Auto-update setup](docs/AUTO-UPDATE.md). The opt-in Windows scheduled task checks GitHub at login and updates only your installed Claude Code secure-coding skill. Review changes to main before trusting them; restart Claude Code to load updates. No scheduler is installed until you run the setup script.
