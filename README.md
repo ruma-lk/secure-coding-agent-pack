@@ -79,8 +79,8 @@ Updates to GitHub **do not automatically update your device**. A session can che
 | Bounded concurrency / resources | [concurrency-and-resource-safety.md](skills/secure-coding/references/concurrency-and-resource-safety.md) |
 | Python threads / workers / asyncio | [python-concurrency.md](skills/secure-coding/references/python-concurrency.md) |
 
-## Sri Lankan IPG and messaging security
-The skill automatically adds [universal payment security](skills/secure-coding/references/payment-security.md), [Sampath / Seylan MPGS / OnePay / PayHere provider checks](skills/secure-coding/references/sri-lanka-ipg-providers.md), and [Dialog eSMS security](skills/secure-coding/references/dialog-esms-security.md) whenever payment, refund, tokenization, OTP or SMS functionality is detected. These are stack-independent rules for React, Laravel, Node.js, PHP, Python, Java, Go, Ruby, React Native and Flutter. Merchant-specific official documentation is required; agents must not invent callback formats, provider credentials, rate limits or status mappings.
+## IPG and messaging security
+The skill automatically adds [universal payment security](skills/secure-coding/references/payment-security.md), [Master IPG / Bancstac IPG / OnePay / PayHere provider checks](skills/secure-coding/references/ipg-providers.md), and [Dialog eSMS security](skills/secure-coding/references/dialog-esms-security.md) whenever payment, refund, tokenization, OTP or SMS functionality is detected. These are stack-independent rules for React, Laravel, Node.js, PHP, Python, Java, Go, Ruby, React Native and Flutter. Merchant-specific official documentation is required; agents must not invent callback formats, provider credentials, rate limits or status mappings.
 
 ## Security workflow
 
